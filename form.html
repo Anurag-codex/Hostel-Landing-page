@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        :root {
+            /* Colors */
+            --white-1: #ffffff;
+            --white-2: #f9f9f9;
+            --eerie-black: #1b1b1b;
+            --red-crayola: #3cff49;
+            --cultured-2: #f3f3f3;
+
+            /* Font sizes */
+            --fs-5: 1rem;
+            --fs-6: 0.875rem;
+
+            /* Border radius */
+            --radius-2: 8px;
+
+            /* Transitions */
+            --transition-1: 0.25s ease;
+
+            /* Shadows */
+            --shadow-1: 0 2px 10px hsla(0, 0%, 0%, 0.1);
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Contact section styles */
+        .contact {
+            background-color: var(--white-2);
+            padding: 60px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .contact .section-text {
+            margin-block: 5px 35px;
+            text-align: center;
+        }
+
+        .contact-form {
+            background-color: var(--white-1);
+            padding: 20px;
+            border-radius: var(--radius-2);
+            margin-block-end: 30px;
+            box-shadow: var(--shadow-1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-field {
+            background-color: var(--white-2);
+            color: var(--eerie-black);
+            font-size: var(--fs-5);
+            padding: 15px;
+            border-radius: var(--radius-2);
+            outline: 1px solid transparent;
+            outline-offset: 0;
+            margin-block-end: 15px;
+            width: 100%;
+            border: none;
+        }
+
+        .input-field::-webkit-inner-spin-button {
+            display: none;
+        }
+
+        .input-field:focus {
+            outline-color: var(--red-crayola);
+        }
+
+        .input-field::placeholder {
+            transition: var(--transition-1);
+        }
+
+        .input-field:focus::placeholder {
+            opacity: 0;
+        }
+
+        textarea.input-field {
+            resize: vertical;
+            min-height: 80px;
+            height: 100px;
+            max-height: 200px;
+            overscroll-behavior: contain;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-block-end: 15px;
+        }
+
+        .checkbox {
+            width: max-content;
+            margin-block-start: 5px;
+            accent-color: var(--red-crayola);
+        }
+
+        .checkbox-wrapper .label {
+            font-size: var(--fs-6);
+        }
+
+        .label-link {
+            display: inline-block;
+            color: var(--red-crayola);
+            text-decoration: none;
+        }
+
+        .label-link:is(:hover, :focus) {
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            background-color: var(--red-crayola);
+            color: var(--white-1);
+            padding: 15px 30px;
+            border: none;
+            border-radius: var(--radius-2);
+            cursor: pointer;
+            font-size: var(--fs-5);
+            transition: var(--transition-1);
+            width: 100%;
+        }
+
+        .btn-primary:is(:hover, :focus) {
+            opacity: 0.9;
+        }
+
+        /* Contact list styles */
+        .contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px 25px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            min-width: 100%;
+            max-width: 350px;
+        }
+
+        .contact-card {
+            background-color: var(--white-1);
+            padding: 20px;
+            border-radius: var(--radius-2);
+            box-shadow: var(--shadow-1);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-card .card-icon {
+            background-color: var(--cultured-2);
+            color: var(--red-crayola);
+            font-size: 25px;
+            padding: 13px;
+            border-radius: 50%;
+            transition: var(--transition-1);
+        }
+
+        .contact-card:is(:hover, :focus) .card-icon {
+            background-color: var(--red-crayola);
+            color: var(--white-1);
+        }
+
+        .contact-card .card-title {
+            margin-block-end: 5px;
+        }
+
+        .contact-card :is(.card-link, .card-address) {
+            font-size: var(--fs-6);
+            transition: var(--transition-1);
+        }
+
+        .contact-card .card-link:is(:hover, :focus) {
+            color: var(--red-crayola);
+        }
+
+        @media (min-width: 768px) {
+            .contact-item {
+                min-width: calc(50% - 25px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section contact" id="contact" aria-label="contact">
+        <div class="container">
+            <h2 class="h2 section-title">Let's Contact With Us</h2>
+            
+            <form action="" class="contact-form">
+                <div class="input-wrapper">
+                    <input type="text" name="name" aria-label="name" placeholder="Your name*" required class="input-field">
+                </div>
+                
+                <div class="input-wrapper">
+                    <input type="number" name="phone" aria-label="phone" placeholder="Phone number" class="input-field">
+                </div>
+                
+                <textarea name="message" aria-label="message" placeholder="Your message...*" required class="input-field"></textarea>
+                
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+            <!-- Contact Cards -->
+            <div class="contact-list">
+                <div class="contact-item">
+                    <div class="contact-card">
+                        <span class="card-icon">📍</span>
+                        <div>
+                            <h3 class="card-title">Our Location</h3>
+                            <address class="card-address">sithra coimbatore</address>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-card">
+                        <span class="card-icon">📞</span>
+                        <div>
+                            <h3 class="card-title">Phone Number</h3>
+                            <a href="tel:7810025247" class="card-link">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-card">
+                        <span class="card-icon">✉️</span>
+                        <div>
+                            <h3 class="card-title">Email Address</h3>
+                            <a href="mailto:info@example.com" class="card-link">info@example.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.querySelector(".btn-primary").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const whatsappNumber = "1234567890"; // Replace with your WhatsApp number
+
+    // Get form values
+    const name = document.querySelector("input[name='name']").value;
+    const phone = document.querySelector("input[name='phone']").value || "Not provided";
+    const message = document.querySelector("textarea[name='message']").value;
+
+    // Create the WhatsApp message
+    const whatsappMessage = `Hello, my name is ${name}. Phone: ${phone}. Message: ${message}`;
+
+    // Redirect to WhatsApp with the pre-filled message
+    window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+});
+
+    </script>
+</body>
+</html>
